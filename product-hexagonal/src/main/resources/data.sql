@@ -1,1 +1,0 @@
-INSERT INTO product(id, name, description, price) VALUES(1, 'Mouse Razer', 'Mouse Razer Deathadder', 200.99);
