@@ -4,19 +4,15 @@ import br.com.heycristhian.producthexagonal.adapters.inbound.dto.request.Product
 import br.com.heycristhian.producthexagonal.adapters.inbound.dto.response.ProductResponse;
 import br.com.heycristhian.producthexagonal.adapters.mapper.ProductMapper;
 import br.com.heycristhian.producthexagonal.application.entity.Product;
+import br.com.heycristhian.producthexagonal.application.filter.SearchFilter;
 import br.com.heycristhian.producthexagonal.application.ports.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -67,10 +63,30 @@ public class ProductController {
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         log.info("Starting to delete product in database with id: {}", id);
 
-        service.findById(id);
         service.deleteById(id);
 
         log.info("Successful deletion with id: {}", id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductResponse> update(@PathVariable Long id, @RequestBody ProductRequest request) {
+        log.info("Starting to update product in database");
+        Product product = ProductMapper.INSTANCE.toProduct(request);
+        product = service.update(id, product);
+        ProductResponse response = ProductMapper.INSTANCE.toProductResponse(product);
+
+        log.info("Update successfully reformed");
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<ProductResponse>> search(@Valid SearchFilter searchFilter) {
+        log.info("Starting a products search");
+        List<Product> products = service.search(searchFilter);
+        List<ProductResponse> responses = ProductMapper.INSTANCE.toProductResponse(products);
+
+        log.info("Products found: {}", responses);
+        return ResponseEntity.ok(responses);
     }
 }

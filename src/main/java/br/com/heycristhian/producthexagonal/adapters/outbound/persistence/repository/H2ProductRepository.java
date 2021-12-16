@@ -2,6 +2,7 @@ package br.com.heycristhian.producthexagonal.adapters.outbound.persistence.repos
 
 import br.com.heycristhian.producthexagonal.adapters.outbound.persistence.springdata.SpringDataH2ProductRepository;
 import br.com.heycristhian.producthexagonal.application.entity.Product;
+import br.com.heycristhian.producthexagonal.application.filter.SearchFilter;
 import br.com.heycristhian.producthexagonal.application.ports.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -35,5 +36,15 @@ public class H2ProductRepository implements ProductRepository {
     @Override
     public void deleteById(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public Product update(Product product) {
+        return repository.save(product);
+    }
+
+    @Override
+    public List<Product> search(SearchFilter filter) {
+        return repository.search(filter);
     }
 }

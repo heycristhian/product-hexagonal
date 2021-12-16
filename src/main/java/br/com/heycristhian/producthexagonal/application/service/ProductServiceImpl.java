@@ -2,6 +2,7 @@ package br.com.heycristhian.producthexagonal.application.service;
 
 import br.com.heycristhian.producthexagonal.application.entity.Product;
 import br.com.heycristhian.producthexagonal.application.exception.ProductNotFoundException;
+import br.com.heycristhian.producthexagonal.application.filter.SearchFilter;
 import br.com.heycristhian.producthexagonal.application.ports.repository.ProductRepository;
 import br.com.heycristhian.producthexagonal.application.ports.service.ProductService;
 
@@ -33,6 +34,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteById(Long id) {
+        findById(id);
         repository.deleteById(id);
+    }
+
+    @Override
+    public Product update(Long id, Product product) {
+        findById(id);
+        product.setId(id);
+        return repository.update(product);
+    }
+
+    @Override
+    public List<Product> search(SearchFilter filter) {
+        return repository.search(filter);
     }
 }
