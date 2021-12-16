@@ -1,20 +1,19 @@
 package br.com.heycristhian.producthexagonal.adapters.inbound.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.*;
-
-import java.util.List;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 @Builder
 @Getter
-@Setter
-@ToString
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class ExceptionResponse {
-    private int code;
-    private String status;
-    private String message;
+public class FieldExceptionResponse {
+
+    private final String field;
+    private final String message;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<FieldExceptionResponse> fields;
+    private final Object parameter;
 }

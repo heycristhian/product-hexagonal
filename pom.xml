@@ -55,18 +55,6 @@
 
 	<build>
 		<plugins>
-<!--			<plugin>-->
-<!--				<groupId>org.springframework.boot</groupId>-->
-<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--				<configuration>-->
-<!--					<excludes>-->
-<!--						<exclude>-->
-<!--							<groupId>org.projectlombok</groupId>-->
-<!--							<artifactId>lombok</artifactId>-->
-<!--						</exclude>-->
-<!--					</excludes>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -92,6 +80,57 @@
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*Application.*</exclude>
+						<exclude>**/producthexagonal/application/entity/*</exclude>
+						<exclude>**/producthexagonal/application/filter/*</exclude>
+						<exclude>**/producthexagonal/application/ports/*</exclude>
+						<exclude>**/producthexagonal/application/exception/*</exclude>
+						<exclude>**/producthexagonal/adapters/configuration/*</exclude>
+						<exclude>**/producthexagonal/adapters/inbound/dto/**/*</exclude>
+						<exclude>**/producthexagonal/adapters/mapper/*</exclude>
+						<exclude>**/producthexagonal/adapters/outbound/**/**/*</exclude>
+						<exclude>**/test/java/**/*</exclude>
+					</excludes>
+					<rules>
+						<rule>
+							<element>BUNDLE</element>
+							<limits>
+								<limit>
+									<counter>LINE</counter>
+									<value>COVEREDRATIO</value>
+									<minimum>90%</minimum>
+								</limit>
+							</limits>
+						</rule>
+					</rules>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

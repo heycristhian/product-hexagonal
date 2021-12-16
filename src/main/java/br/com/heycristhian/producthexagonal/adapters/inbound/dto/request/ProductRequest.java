@@ -1,12 +1,6 @@
 package br.com.heycristhian.producthexagonal.adapters.inbound.dto.request;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,6 +13,7 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class ProductRequest {
 
     @NotBlank(message = "Name must not be empty or null")

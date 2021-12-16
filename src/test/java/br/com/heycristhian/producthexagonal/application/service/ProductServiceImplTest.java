@@ -5,8 +5,8 @@ import br.com.heycristhian.producthexagonal.application.exception.ProductNotFoun
 import br.com.heycristhian.producthexagonal.application.filter.SearchFilter;
 import br.com.heycristhian.producthexagonal.application.ports.repository.ProductRepository;
 import br.com.heycristhian.producthexagonal.application.ports.service.ProductService;
-import br.com.heycristhian.producthexagonal.application.service.mother.ProductMother;
-import br.com.heycristhian.producthexagonal.application.service.mother.SearchFilterMother;
+import br.com.heycristhian.producthexagonal.mother.ProductMother;
+import br.com.heycristhian.producthexagonal.mother.SearchFilterMother;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

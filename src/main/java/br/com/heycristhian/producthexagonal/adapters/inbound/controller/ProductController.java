@@ -47,7 +47,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductResponse> save(@RequestBody ProductRequest request, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<ProductResponse> save(@RequestBody @Valid ProductRequest request, UriComponentsBuilder uriBuilder) {
         log.info("Starting product insertion in the database: {}", request.toString());
 
         Product product = ProductMapper.INSTANCE.toProduct(request);
@@ -70,7 +70,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductResponse> update(@PathVariable Long id, @RequestBody ProductRequest request) {
+    public ResponseEntity<ProductResponse> update(@PathVariable Long id, @RequestBody @Valid ProductRequest request) {
         log.info("Starting to update product in database");
         Product product = ProductMapper.INSTANCE.toProduct(request);
         product = service.update(id, product);
