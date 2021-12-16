@@ -30,7 +30,7 @@ class ProductServiceImplTest {
     private ProductRepository repository;
 
     private final Product productExpected = ProductMother.getProduct();
-    private List<Product> productsExpected = ProductMother.getProducts();
+    private final List<Product> productsExpected = ProductMother.getProducts();
 
     @BeforeEach
     public void setup() {
