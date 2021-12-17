@@ -1,5 +1,4 @@
 ## Prerequisites ✅
-<hr>
 Before running the project and running it, you will need to install some programs, such as:
 
 * [Docker](https://www.docker.com/products/docker-desktop) 
@@ -8,7 +7,6 @@ Before running the project and running it, you will need to install some program
 <br>
 
 ## Running the project 💻
-<hr>
 
 ```bash
 # Building the project
@@ -21,14 +19,12 @@ $ docker-compose up
 <br>
 
 ## Technologies used ⚙
-<hr>
 
 - [Java 11](https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html)
 
 <br>
 
 ## Dependecies used 🔗
-<hr>
 
 - [Lombok](https://projectlombok.org/)
 - [MapStruct](https://mapstruct.org/)
