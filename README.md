@@ -32,4 +32,4 @@ $ docker-compose up
 - [JUnit Jupiter API](https://junit.org/junit5/docs/current/user-guide/)
 
 ---
-Made by Cristhian Dias  |  [See my LinkedIn](https://www.linkedin.com/in/heycristhian/) 😎👍
+<sub>Made by Cristhian Dias  |  [See my LinkedIn](https://www.linkedin.com/in/heycristhian/) 😎👍
