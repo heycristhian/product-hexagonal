@@ -31,7 +31,5 @@ $ docker-compose up
 - [Jacoco](https://www.baeldung.com/jacoco)
 - [JUnit Jupiter API](https://junit.org/junit5/docs/current/user-guide/)
 
-<br>
-
 ---
-<sub>Made by Cristhian Dias  |  [See my LinkedIn](https://www.linkedin.com/in/heycristhian/) 😎👍
+Made by Cristhian Dias  |  [See my LinkedIn](https://www.linkedin.com/in/heycristhian/) 😎👍
