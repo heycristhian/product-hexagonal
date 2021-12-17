@@ -1,5 +1,5 @@
 ## Prerequisites ✅
-Before running the project and running it, you will need to install some programs, such as:
+Before running the project, you will need to install some programs, such as:
 
 * [Docker](https://www.docker.com/products/docker-desktop) 
 * [Postman](https://www.postman.com/downloads/)
